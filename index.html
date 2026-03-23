@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <base target="_top">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Finance Tools</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F5F4F0;
+      --surface: #FFFFFF;
+      --border: #E2E0D8;
+      --text-primary: #1A1A18;
+      --text-secondary: #6B6B60;
+      --accent: #1A73E8;
+      --accent-hover: #1557B0;
+      --accent-light: #EBF2FD;
+      --red: #D93025;
+      --yellow-bg: #FFFBEB;
+      --yellow-border: #F0D050;
+      --yellow-text: #7A5C00;
+      --success: #1E8A4C;
+      --success-bg: #EDFAF3;
+      --tab-active-bg: #1A1A18;
+      --tab-active-text: #FFFFFF;
+      --mono: 'DM Mono', monospace;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 16px;
+    }
+
+    .app-shell {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .app-brand {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .lang-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      letter-spacing: 0.03em;
+    }
+    .lang-btn:hover {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+    }
+
+    /* Tab Bar */
+    .tab-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 4px;
+      margin-bottom: 16px;
+      gap: 4px;
+    }
+    .tab-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 12px;
+      border: none;
+      border-radius: 7px;
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tab-btn.active {
+      background: var(--tab-active-bg);
+      color: var(--tab-active-text);
+    }
+    .tab-btn:not(.active):hover {
+      background: var(--bg);
+      color: var(--text-primary);
+    }
+
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    /* Form Elements */
+    .field-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    input[type="number"],
+    select {
+      font-family: 'DM Sans', sans-serif;
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 15px;
+      color: var(--text-primary);
+      background: var(--surface);
+      transition: border-color 0.15s;
+      appearance: none;
+      -webkit-appearance: none;
+      margin-bottom: 14px;
+    }
+    input[type="number"]:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6B60' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    /* Checkbox */
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 18px;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .toggle-row:hover { border-color: #C8C6BE; }
+    .toggle-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      flex-shrink: 0;
+      accent-color: var(--accent);
+      margin: 0;
+    }
+    .toggle-row label {
+      font-size: 13px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      user-select: none;
+      line-height: 1.4;
+    }
+
+    /* Warning */
+    .warning-box {
+      display: none;
+      background: var(--yellow-bg);
+      border: 1.5px solid var(--yellow-border);
+      border-radius: 8px;
+      padding: 11px 14px;
+      margin-bottom: 16px;
+      font-size: 12.5px;
+      color: var(--yellow-text);
+      line-height: 1.5;
+    }
+
+    /* Result Rows */
+    .divider {
+      height: 1.5px;
+      background: var(--border);
+      margin: 4px 0;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 0;
+    }
+    .result-row .label {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .result-row .value {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--text-primary);
+    }
+    .result-row.total-row .label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .result-row.total-row .value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .result-row.net-row {
+      margin-top: 4px;
+    }
+    .result-row.net-row .label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .result-row.net-row .value {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .result-row.wht-row .value {
+      color: var(--red);
+    }
+
+    /* Address Card */
+    .address-display {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .addr-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+    .addr-body {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+    .addr-tax {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      background: var(--accent-light);
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-top: 2px;
+    }
+
+    /* Buttons */
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 11px 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-secondary {
+      background: var(--bg);
+      color: var(--text-primary);
+      border: 1.5px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: #C8C6BE; background: #EEEDE8; }
+    .btn-primary {
+      background: var(--tab-active-bg);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #333330; }
+
+    /* Seller type toggle */
+    .seller-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .seller-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 9px 10px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .seller-btn.active {
+      background: var(--tab-active-bg);
+      color: #fff;
+      border-color: var(--tab-active-bg);
+    }
+    .seller-btn:not(.active):hover {
+      border-color: #C8C6BE;
+      color: var(--text-primary);
+    }
+
+    /* VAT row hidden for individual seller */
+    .vat-section { transition: opacity 0.2s; }
+    .vat-section.hidden { opacity: 0.3; pointer-events: none; }
+
+    /* Info badge */
+    .seller-info {
+      font-size: 12px;
+      color: var(--text-secondary);
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .seller-info strong { color: var(--text-primary); }
+
+    /* Tab panels */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Footer */
+    .app-footer {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      padding: 0 4px 8px;
+    }
+
+    @media (max-width: 400px) {
+      body { padding: 10px; }
+      .btn-row { grid-template-columns: 1fr; }
+      .result-row.net-row .value { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="app-header">
+    <span class="app-brand" id="txt_brand">Finance Tools</span>
+    <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">ภาษาไทย</button>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" id="tab1" onclick="switchTab('calc')">🧮 <span id="txt_tab1">Tax Calculator</span></button>
+    <button class="tab-btn" id="tab2" onclick="switchTab('billing')">🏢 <span id="txt_tab2">Billing Address</span></button>
+  </div>
+
+  <!-- TAB 1: TAX CALCULATOR -->
+  <div class="tab-panel active" id="panel_calc">
+    <div class="card">
+      <p class="section-title" id="txt_calc_title">WHT & VAT Calculator</p>
+
+      <label class="field-label" id="txt_seller_label">Seller Type</label>
+      <div class="seller-toggle">
+        <button class="seller-btn active" id="btn_company" onclick="setSellerType('company')">
+          🏢 <span id="txt_btn_company">Registered Company<br><small>(นิติบุคคล)</small></span>
+        </button>
+        <button class="seller-btn" id="btn_individual" onclick="setSellerType('individual')">
+          👤 <span id="txt_btn_individual">Individual Seller<br><small>(บุคคลธรรมดา)</small></span>
+        </button>
+      </div>
+
+      <div class="seller-info" id="sellerInfoBox">
+        <span id="txt_seller_info"><strong>Registered Company:</strong> VAT 7% applies + WHT 3% deducted</span>
+      </div>
+
+      <label class="field-label" for="amount" id="txt_amount_label">Amount (THB)</label>
+      <input type="number" id="amount" inputmode="decimal" placeholder="e.g. 10,000" oninput="calculateTax()">
+
+      <div class="vat-section" id="vatSection">
+        <label class="toggle-row" for="includesVat">
+          <input type="checkbox" id="includesVat" onchange="calculateTax()" checked>
+          <label for="includesVat" id="txt_checkbox">Amount already includes 7% VAT (Grand Total)</label>
+        </label>
+      </div>
+
+      <div class="warning-box" id="whtWarning">
+        <span id="txt_warning"><strong>Note:</strong> WHT is not deducted when base amount is under 1,000 THB. WHT set to 0.</span>
+      </div>
+
+      <div class="result-row">
+        <span class="label" id="txt_base">Base Service Amount</span>
+        <span class="value" id="baseAmount">0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="label" id="txt_vat">+ 7% VAT</span>
+        <span class="value" id="vatAmount">+ 0.00</span>
+      </div>
+      <div class="divider"></div>
+      <div class="result-row total-row">
+        <span class="label" id="txt_gross">Gross Invoice Total</span>
+        <span class="value" id="grossAmount">0.00</span>
+      </div>
+      <div class="result-row wht-row">
+        <span class="label" id="txt_wht">− 3% WHT (on Base)</span>
+        <span class="value" id="whtAmount">− 0.00</span>
+      </div>
+      <div class="divider"></div>
+      <div class="result-row net-row">
+        <span class="label" id="txt_net">Net Payable</span>
+        <span class="value" id="netAmount">0.00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: BILLING ADDRESS -->
+  <div class="tab-panel" id="panel_billing">
+    <div class="card">
+      <p class="section-title" id="txt_billing_title">Billing Address Directory</p>
+
+      <label class="field-label" for="locationSelect" id="txt_select_label">Brand & Location</label>
+      <select id="locationSelect" onchange="updateDisplay()">
+        <optgroup label="LOVA">
+          <option value="lova_hq">LOVA — HQ</option>
+        </optgroup>
+        <optgroup label="LAVA">
+          <option value="lava_hq">LAVA — HQ</option>
+        </optgroup>
+        <optgroup label="HOLY BELLY">
+          <option value="hb_hq">Holy Belly — HQ</option>
+          <option value="hb_em">Holy Belly — Emsphere</option>
+        </optgroup>
+        <optgroup label="BIANCA">
+          <option value="bianca_hq">Bianca — HQ</option>
+          <option value="bianca_em">Bianca — Emsphere</option>
+          <option value="bianca_ob">Bianca — One BKK</option>
+          <option value="bianca_sp">Bianca — Paragon</option>
+          <option value="bianca_ic">Bianca — Iconsiam</option>
+        </optgroup>
+      </select>
+
+      <label class="toggle-row" id="centralKitchenBox" style="display:none;" for="isKitchen">
+        <input type="checkbox" id="isKitchen" onchange="updateDisplay()">
+        <label for="isKitchen" id="txt_kitchen">Add (ครัวกลาง) to Company Name</label>
+      </label>
+
+      <div class="address-display">
+        <div class="addr-name" id="dispName">—</div>
+        <div class="addr-body" id="dispAddress">—</div>
+        <div class="addr-tax" id="dispTaxId">—</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-secondary" id="copyBtn" onclick="copyToClipboard()">📋 <span id="txt_copy">Copy Details</span></button>
+        <button class="btn btn-primary" onclick="openCashierMode()">📱 <span id="txt_cashier">Show Cashier</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="app-footer">
+    Financial tools done by Marketing Manager.<br>If you have any problems please contact the Marketing Team.
+  </div>
+
+</div>
+
+<script>
+  // ─── TRANSLATIONS ────────────────────────────────────────────
+  const T = {
+    en: {
+      brand: "Finance Tools",
+      tab1: "Tax Calculator", tab2: "Billing Address",
+      calc_title: "WHT & VAT Calculator",
+      seller_label: "Seller Type",
+      btn_company: "Registered Company",
+      btn_individual: "Individual Seller",
+      seller_info_company: "<strong>Registered Company:</strong> VAT 7% applies + WHT 3% deducted",
+      seller_info_individual: "<strong>Individual Seller:</strong> No VAT — WHT 3% deducted only",
+      amount_label: "Amount (THB)",
+      placeholder: "e.g. 10,000",
+      checkbox: "Amount already includes 7% VAT (Grand Total)",
+      warning: "<strong>Note:</strong> WHT is not deducted when base amount is under 1,000 THB. WHT set to 0.",
+      base: "Base Service Amount", vat: "+ 7% VAT",
+      gross: "Gross Invoice Total", wht: "− 3% WHT (on Base)", net: "Net Payable",
+      billing_title: "Billing Address Directory",
+      select_label: "Brand & Location",
+      kitchen: "Add (ครัวกลาง) to Company Name",
+      copy: "Copy Details", cashier: "Show Cashier",
+      langBtn: "ภาษาไทย"
+    },
+    th: {
+      brand: "เครื่องมือการเงิน",
+      tab1: "คำนวณภาษี", tab2: "ที่อยู่ใบกำกับ",
+      calc_title: "คำนวณ VAT & ภาษีหัก ณ ที่จ่าย",
+      seller_label: "ประเภทผู้ขาย",
+      btn_company: "นิติบุคคล",
+      btn_individual: "บุคคลธรรมดา",
+      seller_info_company: "<strong>นิติบุคคล:</strong> มี VAT 7% + หักภาษี ณ ที่จ่าย 3%",
+      seller_info_individual: "<strong>บุคคลธรรมดา:</strong> ไม่มี VAT — หักภาษี ณ ที่จ่าย 3% เท่านั้น",
+      amount_label: "จำนวนเงิน (บาท)",
+      placeholder: "เช่น 10,000",
+      checkbox: "ยอดนี้รวม VAT 7% แล้ว",
+      warning: "<strong>หมายเหตุ:</strong> ไม่ต้องหักภาษี ณ ที่จ่าย หากมูลค่าก่อน VAT ต่ำกว่า 1,000 บาท",
+      base: "มูลค่าการสั่งซื้อ", vat: "+ VAT 7%",
+      gross: "จำนวนเงินรวมทั้งหมด", wht: "− ภาษีหัก ณ ที่จ่าย 3%", net: "ยอดชำระสุทธิ",
+      billing_title: "สมุดที่อยู่ใบกำกับภาษี",
+      select_label: "แบรนด์และสาขา",
+      kitchen: "เพิ่ม (ครัวกลาง) ต่อท้ายชื่อบริษัท",
+      copy: "คัดลอกข้อมูล", cashier: "แสดงหน้าแคชเชียร์",
+      langBtn: "English"
+    }
+  };
+
+  let lang = 'en';
+
+  function toggleLanguage() {
+    lang = lang === 'en' ? 'th' : 'en';
+    const t = T[lang];
+    document.getElementById('txt_brand').textContent = t.brand;
+    document.getElementById('txt_tab1').textContent = t.tab1;
+    document.getElementById('txt_tab2').textContent = t.tab2;
+    document.getElementById('txt_calc_title').textContent = t.calc_title;
+    document.getElementById('txt_seller_label').textContent = t.seller_label;
+    document.getElementById('txt_btn_company').textContent = t.btn_company;
+    document.getElementById('txt_btn_individual').textContent = t.btn_individual;
+    document.getElementById('txt_seller_info').innerHTML = sellerType === 'company' ? t.seller_info_company : t.seller_info_individual;
+    document.getElementById('txt_amount_label').textContent = t.amount_label;
+    document.getElementById('amount').placeholder = t.placeholder;
+    document.getElementById('txt_checkbox').textContent = t.checkbox;
+    document.getElementById('txt_warning').innerHTML = t.warning;
+    document.getElementById('txt_base').textContent = t.base;
+    document.getElementById('txt_vat').textContent = t.vat;
+    document.getElementById('txt_gross').textContent = t.gross;
+    document.getElementById('txt_wht').textContent = t.wht;
+    document.getElementById('txt_net').textContent = t.net;
+    document.getElementById('txt_billing_title').textContent = t.billing_title;
+    document.getElementById('txt_select_label').textContent = t.select_label;
+    document.getElementById('txt_kitchen').textContent = t.kitchen;
+    document.getElementById('txt_copy').textContent = t.copy;
+    document.getElementById('txt_cashier').textContent = t.cashier;
+    document.getElementById('langBtn').textContent = t.langBtn;
+  }
+
+  // ─── TAB SWITCHING ───────────────────────────────────────────
+  function switchTab(tab) {
+    document.getElementById('panel_calc').classList.toggle('active', tab === 'calc');
+    document.getElementById('panel_billing').classList.toggle('active', tab === 'billing');
+    document.getElementById('tab1').classList.toggle('active', tab === 'calc');
+    document.getElementById('tab2').classList.toggle('active', tab === 'billing');
+  }
+
+  // ─── SELLER TYPE ─────────────────────────────────────────────
+  let sellerType = 'company';
+
+  function setSellerType(type) {
+    sellerType = type;
+    document.getElementById('btn_company').classList.toggle('active', type === 'company');
+    document.getElementById('btn_individual').classList.toggle('active', type === 'individual');
+    const vatSection = document.getElementById('vatSection');
+    vatSection.classList.toggle('hidden', type === 'individual');
+    // Update info badge
+    const t = T[lang];
+    document.getElementById('txt_seller_info').innerHTML =
+      type === 'company' ? t.seller_info_company : t.seller_info_individual;
+    calculateTax();
+  }
+
+  // ─── TAX CALCULATOR ──────────────────────────────────────────
+  function calculateTax() {
+    const inputValue = parseFloat(document.getElementById('amount').value) || 0;
+    const includesVat = document.getElementById('includesVat').checked;
+    const isIndividual = sellerType === 'individual';
+
+    let base, vat, gross;
+
+    if (isIndividual) {
+      // Individual seller: no VAT at all
+      base = inputValue;
+      vat = 0;
+      gross = base;
+    } else if (includesVat) {
+      gross = inputValue;
+      base = gross / 1.07;
+      vat = gross - base;
+    } else {
+      base = inputValue;
+      vat = base * 0.07;
+      gross = base + vat;
+    }
+
+    let wht = 0;
+    const warning = document.getElementById('whtWarning');
+    const whtRow = document.querySelector('.wht-row .value');
+
+    if (base > 0 && base < 1000) {
+      warning.style.display = 'block';
+      whtRow.style.color = 'var(--yellow-text)';
+    } else {
+      wht = base * 0.03;
+      warning.style.display = 'none';
+      whtRow.style.color = 'var(--red)';
+    }
+
+    const net = gross - wht;
+    const fmt = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    document.getElementById('baseAmount').textContent = fmt(base);
+    document.getElementById('vatAmount').textContent = isIndividual ? '— N/A' : '+ ' + fmt(vat);
+    document.getElementById('grossAmount').textContent = fmt(gross);
+    document.getElementById('whtAmount').textContent = '− ' + fmt(wht);
+    document.getElementById('netAmount').textContent = fmt(net);
+  }
+
+  // ─── BILLING ADDRESS ─────────────────────────────────────────
+  const addressData = {
+    lova_hq:   { name: "บริษัท โลวา ฮอสพิแทลลิที จำกัด สำนักงานใหญ่", addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ยูนิต 402 ชั้น 4 ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-411-1680" },
+    lava_hq:   { name: "บริษัท ลาวา เอเชียน บิสโทร แอนด์ บาร์ จำกัด สำนักงานใหญ่", addr: "137/1 ซอยสุขุมวิท 63 (เอกมัย) แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-504-7942" },
+    hb_hq:     { name: "บริษัท โฮลี่ เบลลี่ อีเอ็มเอส จำกัด สำนักงานใหญ่", addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ยูนิต 402 ชั้น 4 ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-714-6450" },
+    hb_em:     { name: "บริษัท โฮลี่ เบลลี่ อีเอ็มเอส จำกัด สาขา 00001", addr: "628,630 อาคารศูนย์การค้า EMSPHERE ชั้น GM ห้องเลขที่ GM03, GMV05 ถนนสุขุมวิท แขวงคลองตัน เขตคลองเตย กรุงเทพมหานคร 10110", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-714-6450" },
+    bianca_hq: { name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สำนักงานใหญ่", addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ชั้นที่ 4 ยูนิต 402 ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-8090-385" },
+    bianca_em: { name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00001", addr: "628, 630 อาคารศูนย์การค้า EMSPHERE ถนนสุขุมวิท แขวงคลองตัน เขตคลองเตย กรุงเทพมหานคร 10110", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-8090-385" },
+    bianca_ob: { name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00002", addr: "1877 อาคารพาเรด ชั้นที่ 3 ห้องเลขที่ 1313-1314 ถนนพระรามที่ 4 แขวงลุมพินี เขตปทุมวัน กรุงเทพมหานคร 10330", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-8090-385" },
+    bianca_sp: { name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00003", addr: "991/1 ชั้นที่ G ถนนพระราม 1 แขวงปทุมวัน เขตปทุมวัน กรุงเทพมหานคร 10330", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-8090-385" },
+    bianca_ic: { name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00004", addr: "299 ชั้นที่ 6 ห้องเลขที่ 609 ถนนเจริญนคร แขวงคลองต้นไทร เขตคลองสาน กรุงเทพมหานคร 10600", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-8090-385" }
+  };
+
+  let currentName = "", currentAddr = "", currentTax = "";
+
+  function updateDisplay() {
+    const sel = document.getElementById("locationSelect").value;
+    const d = addressData[sel];
+    const kitchenBox = document.getElementById("centralKitchenBox");
+    const isKitchen = document.getElementById("isKitchen").checked;
+
+    kitchenBox.style.display = sel === "bianca_hq" ? "flex" : "none";
+    if (sel !== "bianca_hq") document.getElementById("isKitchen").checked = false;
+
+    currentName = d.name + (sel === "bianca_hq" && isKitchen ? " (ครัวกลาง)" : "");
+    currentAddr = d.addr;
+    currentTax = d.tax;
+
+    document.getElementById("dispName").textContent = currentName;
+    document.getElementById("dispAddress").textContent = currentAddr;
+    document.getElementById("dispTaxId").textContent = currentTax;
+  }
+
+  function copyToClipboard() {
+    navigator.clipboard.writeText(`${currentName}\n${currentAddr}\n${currentTax}`).then(() => {
+      const btn = document.getElementById("copyBtn");
+      const span = btn.querySelector('span');
+      const prev = span.textContent;
+      span.textContent = "Copied!";
+      btn.style.background = "var(--success-bg)";
+      btn.style.color = "var(--success)";
+      btn.style.borderColor = "#A8DFC0";
+      setTimeout(() => {
+        span.textContent = prev;
+        btn.style.background = "";
+        btn.style.color = "";
+        btn.style.borderColor = "";
+      }, 2000);
+    });
+  }
+
+  function openCashierMode() {
+    const w = window.open("", "_blank");
+    const formattedTax = currentTax.replace("ทะเบียนนิติบุคคลเลขที่ ", "ทะเบียนนิติบุคคลเลขที่<br>");
+    w.document.write(`<!DOCTYPE html><html><head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <title>Cashier View</title>
+      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+      <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'DM Sans', sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 40px 30px; background: #fff; }
+        .close { position: fixed; top: 20px; right: 24px; font-size: 36px; color: #999; text-decoration: none; line-height: 1; }
+        .name { font-size: clamp(20px, 4vw, 30px); font-weight: 600; color: #1A1A18; margin-bottom: 20px; line-height: 1.4; }
+        .addr { font-size: clamp(16px, 3vw, 22px); color: #555; line-height: 1.6; margin-bottom: 24px; }
+        .tax { font-family: 'DM Mono', monospace; font-size: clamp(16px, 3vw, 22px); color: #1A73E8; background: #EBF2FD; padding: 10px 20px; border-radius: 8px; line-height: 1.5; }
+      </style></head><body>
+      <a href="#" class="close" onclick="window.close();return false;">&times;</a>
+      <div class="name">${currentName}</div>
+      <div class="addr">${currentAddr}</div>
+      <div class="tax">${formattedTax}</div>
+      </body></html>`);
+    w.document.close();
+  }
+
+  // ─── INIT ─────────────────────────────────────────────────────
+  window.onload = () => { calculateTax(); updateDisplay(); };
+</script>
+
+</body>
+</html>
