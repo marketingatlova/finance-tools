@@ -37,10 +37,7 @@
       padding: 16px;
     }
 
-    .app-shell {
-      max-width: 520px;
-      margin: 0 auto;
-    }
+    .app-shell { max-width: 520px; margin: 0 auto; }
 
     /* Header */
     .app-header {
@@ -69,10 +66,7 @@
       transition: all 0.15s ease;
       letter-spacing: 0.03em;
     }
-    .lang-btn:hover {
-      border-color: var(--text-primary);
-      color: var(--text-primary);
-    }
+    .lang-btn:hover { border-color: var(--text-primary); color: var(--text-primary); }
 
     /* Tab Bar */
     .tab-bar {
@@ -100,14 +94,8 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .tab-btn.active {
-      background: var(--tab-active-bg);
-      color: var(--tab-active-text);
-    }
-    .tab-btn:not(.active):hover {
-      background: var(--bg);
-      color: var(--text-primary);
-    }
+    .tab-btn.active { background: var(--tab-active-bg); color: var(--tab-active-text); }
+    .tab-btn:not(.active):hover { background: var(--bg); color: var(--text-primary); }
 
     /* Card */
     .card {
@@ -116,13 +104,7 @@
       border-radius: 12px;
       padding: 20px;
     }
-
-    .section-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 16px;
-    }
+    .section-title { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px; }
 
     /* Form Elements */
     .field-label {
@@ -134,9 +116,7 @@
       text-transform: uppercase;
       margin-bottom: 6px;
     }
-
-    input[type="number"],
-    select {
+    input[type="number"], select {
       font-family: 'DM Sans', sans-serif;
       width: 100%;
       padding: 11px 14px;
@@ -150,11 +130,7 @@
       -webkit-appearance: none;
       margin-bottom: 14px;
     }
-    input[type="number"]:focus,
-    select:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
+    input[type="number"]:focus, select:focus { outline: none; border-color: var(--accent); }
     select {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6B60' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
@@ -177,20 +153,10 @@
     }
     .toggle-row:hover { border-color: #C8C6BE; }
     .toggle-row input[type="checkbox"] {
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
-      flex-shrink: 0;
-      accent-color: var(--accent);
-      margin: 0;
+      width: 16px; height: 16px; cursor: pointer;
+      flex-shrink: 0; accent-color: var(--accent); margin: 0;
     }
-    .toggle-row label {
-      font-size: 13px;
-      color: var(--text-secondary);
-      cursor: pointer;
-      user-select: none;
-      line-height: 1.4;
-    }
+    .toggle-row label { font-size: 13px; color: var(--text-secondary); cursor: pointer; user-select: none; line-height: 1.4; }
 
     /* Warning */
     .warning-box {
@@ -206,54 +172,16 @@
     }
 
     /* Result Rows */
-    .divider {
-      height: 1.5px;
-      background: var(--border);
-      margin: 4px 0;
-    }
-
-    .result-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 9px 0;
-    }
-    .result-row .label {
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-    .result-row .value {
-      font-family: var(--mono);
-      font-size: 14px;
-      color: var(--text-primary);
-    }
-    .result-row.total-row .label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-    .result-row.total-row .value {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-    .result-row.net-row {
-      margin-top: 4px;
-    }
-    .result-row.net-row .label {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-    .result-row.net-row .value {
-      font-family: var(--mono);
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--accent);
-    }
-    .result-row.wht-row .value {
-      color: var(--red);
-    }
+    .divider { height: 1.5px; background: var(--border); margin: 4px 0; }
+    .result-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; }
+    .result-row .label { font-size: 13px; color: var(--text-secondary); }
+    .result-row .value { font-family: var(--mono); font-size: 14px; color: var(--text-primary); }
+    .result-row.total-row .label { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+    .result-row.total-row .value { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+    .result-row.net-row { margin-top: 4px; }
+    .result-row.net-row .label { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+    .result-row.net-row .value { font-family: var(--mono); font-size: 20px; font-weight: 500; color: var(--accent); }
+    .result-row.wht-row .value { color: var(--red); }
 
     /* Address Card */
     .address-display {
@@ -263,19 +191,8 @@
       padding: 14px;
       margin-bottom: 14px;
     }
-    .addr-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.5;
-      margin-bottom: 6px;
-    }
-    .addr-body {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 6px;
-    }
+    .addr-name { font-size: 14px; font-weight: 600; color: var(--text-primary); line-height: 1.5; margin-bottom: 6px; }
+    .addr-body { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 6px; }
     .addr-tax {
       font-family: var(--mono);
       font-size: 12px;
@@ -288,82 +205,44 @@
     }
 
     /* Buttons */
-    .btn-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
+    .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .btn {
       font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 13px; font-weight: 600;
       padding: 11px 14px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
+      border: none; border-radius: 8px;
+      cursor: pointer; transition: all 0.15s ease;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
     }
-    .btn-secondary {
-      background: var(--bg);
-      color: var(--text-primary);
-      border: 1.5px solid var(--border);
-    }
+    .btn-secondary { background: var(--bg); color: var(--text-primary); border: 1.5px solid var(--border); }
     .btn-secondary:hover { border-color: #C8C6BE; background: #EEEDE8; }
-    .btn-primary {
-      background: var(--tab-active-bg);
-      color: #fff;
-    }
+    .btn-primary { background: var(--tab-active-bg); color: #fff; }
     .btn-primary:hover { background: #333330; }
 
     /* Seller type toggle */
-    .seller-toggle {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      margin-bottom: 14px;
-    }
+    .seller-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 14px; }
     .seller-btn {
       font-family: 'DM Sans', sans-serif;
-      font-size: 12.5px;
-      font-weight: 600;
+      font-size: 12.5px; font-weight: 600;
       padding: 9px 10px;
       border: 1.5px solid var(--border);
       border-radius: 8px;
       background: var(--surface);
       color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.15s ease;
-      text-align: center;
-      line-height: 1.3;
+      cursor: pointer; transition: all 0.15s ease;
+      text-align: center; line-height: 1.3;
     }
-    .seller-btn.active {
-      background: var(--tab-active-bg);
-      color: #fff;
-      border-color: var(--tab-active-bg);
-    }
-    .seller-btn:not(.active):hover {
-      border-color: #C8C6BE;
-      color: var(--text-primary);
-    }
+    .seller-btn.active { background: var(--tab-active-bg); color: #fff; border-color: var(--tab-active-bg); }
+    .seller-btn:not(.active):hover { border-color: #C8C6BE; color: var(--text-primary); }
 
-    /* VAT row hidden for individual seller */
     .vat-section { transition: opacity 0.2s; }
     .vat-section.hidden { opacity: 0.3; pointer-events: none; }
 
     /* Info badge */
     .seller-info {
-      font-size: 12px;
-      color: var(--text-secondary);
-      background: var(--bg);
-      border: 1.5px solid var(--border);
-      border-radius: 6px;
-      padding: 8px 12px;
-      margin-bottom: 14px;
-      line-height: 1.5;
+      font-size: 12px; color: var(--text-secondary);
+      background: var(--bg); border: 1.5px solid var(--border);
+      border-radius: 6px; padding: 8px 12px; margin-bottom: 14px; line-height: 1.5;
     }
     .seller-info strong { color: var(--text-primary); }
 
@@ -373,12 +252,9 @@
 
     /* Footer */
     .app-footer {
-      margin-top: 16px;
-      text-align: center;
-      font-size: 11.5px;
-      color: var(--text-secondary);
-      line-height: 1.5;
-      padding: 0 4px 8px;
+      margin-top: 16px; text-align: center;
+      font-size: 11.5px; color: var(--text-secondary);
+      line-height: 1.5; padding: 0 4px 8px;
     }
 
     @media (max-width: 400px) {
@@ -410,10 +286,10 @@
       <label class="field-label" id="txt_seller_label">Seller Type</label>
       <div class="seller-toggle">
         <button class="seller-btn active" id="btn_company" onclick="setSellerType('company')">
-          🏢 <span id="txt_btn_company">Registered Company<br><small>(นิติบุคคล)</small></span>
+          🏢 <span id="txt_btn_company">Registered Company</span>
         </button>
         <button class="seller-btn" id="btn_individual" onclick="setSellerType('individual')">
-          👤 <span id="txt_btn_individual">Individual Seller<br><small>(บุคคลธรรมดา)</small></span>
+          👤 <span id="txt_btn_individual">Individual Seller</span>
         </button>
       </div>
 
@@ -479,10 +355,11 @@
         </optgroup>
         <optgroup label="BIANCA">
           <option value="bianca_hq">Bianca — HQ</option>
-          <option value="bianca_em">Bianca — Emsphere</option>
-          <option value="bianca_ob">Bianca — One BKK</option>
-          <option value="bianca_sp">Bianca — Paragon</option>
-          <option value="bianca_ic">Bianca — Iconsiam</option>
+          <option value="bianca_em">Bianca — Emsphere (00001)</option>
+          <option value="bianca_ob">Bianca — One BKK (00002)</option>
+          <option value="bianca_sp">Bianca — Paragon (00003)</option>
+          <option value="bianca_ic">Bianca — Iconsiam (00004)</option>
+          <option value="bianca_t21">Bianca — Terminal 21 (00005)</option>
         </optgroup>
       </select>
 
@@ -503,6 +380,7 @@
       </div>
     </div>
   </div>
+
   <div class="app-footer">
     Financial tools done by Marketing Manager.<br>If you have any problems please contact the Marketing Team.
   </div>
@@ -510,6 +388,123 @@
 </div>
 
 <script>
+  // ─── ADDRESS DATA (bilingual) ────────────────────────────────
+  // Each entry has `en` and `th` versions for name and addr.
+  // tax is the same in both (numeric tax ID); taxLabel is language-specific.
+  const addressData = {
+    lova_hq: {
+      en: {
+        name: "Lova Hospitality Co., Ltd. (Head Office)",
+        addr: "571 RSU Tower, Unit 402, 4th Floor, Sukhumvit Road, Khlong Toei Nuea, Watthana, Bangkok 10110, Thailand"
+      },
+      th: {
+        name: "บริษัท โลวา ฮอสพิแทลลิที จำกัด สำนักงานใหญ่",
+        addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ยูนิต 402 ชั้น 4 ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
+      },
+      taxId: "0105564111680"
+    },
+    lava_hq: {
+      en: {
+        name: "Lava Asian Bistro and Bar Co., Ltd. (Head Office)",
+        addr: "137/1 Soi Sukhumvit 63 (Ekkamai), Khlong Toei Nuea, Watthana, Bangkok 10110, Thailand"
+      },
+      th: {
+        name: "บริษัท ลาวา เอเชียน บิสโทร แอนด์ บาร์ จำกัด สำนักงานใหญ่",
+        addr: "137/1 ซอยสุขุมวิท 63 (เอกมัย) แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
+      },
+      taxId: "0105565047942"
+    },
+    hb_hq: {
+      en: {
+        name: "Holy Belly EMS Co., Ltd. (Head Office)",
+        addr: "571 RSU Tower, Unit 402, 4th Floor, Sukhumvit Road, Khlong Toei Nuea, Watthana, Bangkok 10110, Thailand"
+      },
+      th: {
+        name: "บริษัท โฮลี่ เบลลี่ อีเอ็มเอส จำกัด สำนักงานใหญ่",
+        addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ยูนิต 402 ชั้น 4 ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
+      },
+      taxId: "0105567146450"
+    },
+    hb_em: {
+      en: {
+        name: "Holy Belly EMS Co., Ltd. (Branch 00001)",
+        addr: "628, 630 EMSPHERE Shopping Complex, GM Floor, Units GM03 & GMV05, Sukhumvit Road, Khlong Toei, Klong Toei, Bangkok 10110, Thailand"
+      },
+      th: {
+        name: "บริษัท โฮลี่ เบลลี่ อีเอ็มเอส จำกัด สาขา 00001",
+        addr: "628, 630 อาคารศูนย์การค้า EMSPHERE ชั้น GM ห้องเลขที่ GM03, GMV05 ถนนสุขุมวิท แขวงคลองตัน เขตคลองเตย กรุงเทพมหานคร 10110"
+      },
+      taxId: "0105567146450"
+    },
+    bianca_hq: {
+      en: {
+        name: "Bianca Holdings Co., Ltd. (Head Office)",
+        addr: "571 RSU Tower, 4th Floor, Unit 402, Sukhumvit Road, Khlong Toei Nuea, Watthana, Bangkok 10110, Thailand"
+      },
+      th: {
+        name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สำนักงานใหญ่",
+        addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ชั้นที่ 4 ยูนิต 402 ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
+      },
+      taxId: "0105568090385",
+      hasKitchen: true
+    },
+    bianca_em: {
+      en: {
+        name: "Bianca Holdings Co., Ltd. (Branch 00001)",
+        addr: "628, 630 EMSPHERE Shopping Complex, Sukhumvit Road, Khlong Toei, Klong Toei, Bangkok 10110, Thailand"
+      },
+      th: {
+        name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00001",
+        addr: "628, 630 อาคารศูนย์การค้า EMSPHERE ถนนสุขุมวิท แขวงคลองตัน เขตคลองเตย กรุงเทพมหานคร 10110"
+      },
+      taxId: "0105568090385"
+    },
+    bianca_ob: {
+      en: {
+        name: "Bianca Holdings Co., Ltd. (Branch 00002)",
+        addr: "1877 Parade Building, 3rd Floor, Units 1313–1314, Rama IV Road, Lumphini, Pathum Wan, Bangkok 10330, Thailand"
+      },
+      th: {
+        name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00002",
+        addr: "1877 อาคารพาเรด ชั้นที่ 3 ห้องเลขที่ 1313-1314 ถนนพระรามที่ 4 แขวงลุมพินี เขตปทุมวัน กรุงเทพมหานคร 10330"
+      },
+      taxId: "0105568090385"
+    },
+    bianca_sp: {
+      en: {
+        name: "Bianca Holdings Co., Ltd. (Branch 00003)",
+        addr: "991/1 Ground Floor, Rama I Road, Pathum Wan, Pathum Wan, Bangkok 10330, Thailand"
+      },
+      th: {
+        name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00003",
+        addr: "991/1 ชั้นที่ G ถนนพระราม 1 แขวงปทุมวัน เขตปทุมวัน กรุงเทพมหานคร 10330"
+      },
+      taxId: "0105568090385"
+    },
+    bianca_ic: {
+      en: {
+        name: "Bianca Holdings Co., Ltd. (Branch 00004)",
+        addr: "299 6th Floor, Unit 609, Charoen Nakhon Road, Khlong Ton Sai, Khlong San, Bangkok 10600, Thailand"
+      },
+      th: {
+        name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00004",
+        addr: "299 ชั้นที่ 6 ห้องเลขที่ 609 ถนนเจริญนคร แขวงคลองต้นไทร เขตคลองสาน กรุงเทพมหานคร 10600"
+      },
+      taxId: "0105568090385"
+    },
+    bianca_t21: {
+      en: {
+        name: "Bianca Holdings Co., Ltd. (Branch 00005)",
+        addr: "88, 5th Floor, Units 5016A–5016B, Soi Sukhumvit 19 (Watthana), Sukhumvit Road, Khlong Toei Nuea, Watthana, Bangkok 10110, Thailand"
+      },
+      th: {
+        name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00005",
+        addr: "88 ชั้นที่ 5 ห้องเลขที่ 5016A–5016B ซอยสุขุมวิท 19 (วัฒนา) ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
+      },
+      taxId: "0105568090385"
+    }
+  };
+
   // ─── TRANSLATIONS ────────────────────────────────────────────
   const T = {
     en: {
@@ -530,6 +525,7 @@
       billing_title: "Billing Address Directory",
       select_label: "Brand & Location",
       kitchen: "Add (ครัวกลาง) to Company Name",
+      taxLabel: "Tax ID No.",
       copy: "Copy Details", cashier: "Show Cashier",
       langBtn: "ภาษาไทย"
     },
@@ -551,6 +547,7 @@
       billing_title: "สมุดที่อยู่ใบกำกับภาษี",
       select_label: "แบรนด์และสาขา",
       kitchen: "เพิ่ม (ครัวกลาง) ต่อท้ายชื่อบริษัท",
+      taxLabel: "ทะเบียนนิติบุคคลเลขที่",
       copy: "คัดลอกข้อมูล", cashier: "แสดงหน้าแคชเชียร์",
       langBtn: "English"
     }
@@ -558,8 +555,7 @@
 
   let lang = 'en';
 
-  function toggleLanguage() {
-    lang = lang === 'en' ? 'th' : 'en';
+  function applyTranslations() {
     const t = T[lang];
     document.getElementById('txt_brand').textContent = t.brand;
     document.getElementById('txt_tab1').textContent = t.tab1;
@@ -568,7 +564,8 @@
     document.getElementById('txt_seller_label').textContent = t.seller_label;
     document.getElementById('txt_btn_company').textContent = t.btn_company;
     document.getElementById('txt_btn_individual').textContent = t.btn_individual;
-    document.getElementById('txt_seller_info').innerHTML = sellerType === 'company' ? t.seller_info_company : t.seller_info_individual;
+    document.getElementById('txt_seller_info').innerHTML =
+      sellerType === 'company' ? t.seller_info_company : t.seller_info_individual;
     document.getElementById('txt_amount_label').textContent = t.amount_label;
     document.getElementById('amount').placeholder = t.placeholder;
     document.getElementById('txt_checkbox').textContent = t.checkbox;
@@ -584,6 +581,12 @@
     document.getElementById('txt_copy').textContent = t.copy;
     document.getElementById('txt_cashier').textContent = t.cashier;
     document.getElementById('langBtn').textContent = t.langBtn;
+    updateDisplay(); // re-render address in new language
+  }
+
+  function toggleLanguage() {
+    lang = lang === 'en' ? 'th' : 'en';
+    applyTranslations();
   }
 
   // ─── TAB SWITCHING ───────────────────────────────────────────
@@ -601,9 +604,7 @@
     sellerType = type;
     document.getElementById('btn_company').classList.toggle('active', type === 'company');
     document.getElementById('btn_individual').classList.toggle('active', type === 'individual');
-    const vatSection = document.getElementById('vatSection');
-    vatSection.classList.toggle('hidden', type === 'individual');
-    // Update info badge
+    document.getElementById('vatSection').classList.toggle('hidden', type === 'individual');
     const t = T[lang];
     document.getElementById('txt_seller_info').innerHTML =
       type === 'company' ? t.seller_info_company : t.seller_info_individual;
@@ -619,7 +620,6 @@
     let base, vat, gross;
 
     if (isIndividual) {
-      // Individual seller: no VAT at all
       base = inputValue;
       vat = 0;
       gross = base;
@@ -635,15 +635,15 @@
 
     let wht = 0;
     const warning = document.getElementById('whtWarning');
-    const whtRow = document.querySelector('.wht-row .value');
+    const whtVal = document.querySelector('.wht-row .value');
 
     if (base > 0 && base < 1000) {
       warning.style.display = 'block';
-      whtRow.style.color = 'var(--yellow-text)';
+      whtVal.style.color = 'var(--yellow-text)';
     } else {
       wht = base * 0.03;
       warning.style.display = 'none';
-      whtRow.style.color = 'var(--red)';
+      whtVal.style.color = 'var(--red)';
     }
 
     const net = gross - wht;
@@ -657,59 +657,53 @@
   }
 
   // ─── BILLING ADDRESS ─────────────────────────────────────────
-  const addressData = {
-    lova_hq:   { name: "บริษัท โลวา ฮอสพิแทลลิที จำกัด สำนักงานใหญ่", addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ยูนิต 402 ชั้น 4 ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-411-1680" },
-    lava_hq:   { name: "บริษัท ลาวา เอเชียน บิสโทร แอนด์ บาร์ จำกัด สำนักงานใหญ่", addr: "137/1 ซอยสุขุมวิท 63 (เอกมัย) แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-504-7942" },
-    hb_hq:     { name: "บริษัท โฮลี่ เบลลี่ อีเอ็มเอส จำกัด สำนักงานใหญ่", addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ยูนิต 402 ชั้น 4 ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-714-6450" },
-    hb_em:     { name: "บริษัท โฮลี่ เบลลี่ อีเอ็มเอส จำกัด สาขา 00001", addr: "628,630 อาคารศูนย์การค้า EMSPHERE ชั้น GM ห้องเลขที่ GM03, GMV05 ถนนสุขุมวิท แขวงคลองตัน เขตคลองเตย กรุงเทพมหานคร 10110", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-714-6450" },
-    bianca_hq: { name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สำนักงานใหญ่", addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ชั้นที่ 4 ยูนิต 402 ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-8090-385" },
-    bianca_em: { name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00001", addr: "628, 630 อาคารศูนย์การค้า EMSPHERE ถนนสุขุมวิท แขวงคลองตัน เขตคลองเตย กรุงเทพมหานคร 10110", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-8090-385" },
-    bianca_ob: { name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00002", addr: "1877 อาคารพาเรด ชั้นที่ 3 ห้องเลขที่ 1313-1314 ถนนพระรามที่ 4 แขวงลุมพินี เขตปทุมวัน กรุงเทพมหานคร 10330", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-8090-385" },
-    bianca_sp: { name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00003", addr: "991/1 ชั้นที่ G ถนนพระราม 1 แขวงปทุมวัน เขตปทุมวัน กรุงเทพมหานคร 10330", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-8090-385" },
-    bianca_ic: { name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00004", addr: "299 ชั้นที่ 6 ห้องเลขที่ 609 ถนนเจริญนคร แขวงคลองต้นไทร เขตคลองสาน กรุงเทพมหานคร 10600", tax: "ทะเบียนนิติบุคคลเลขที่ 010-556-8090-385" }
-  };
-
-  let currentName = "", currentAddr = "", currentTax = "";
+  let currentName = '', currentAddr = '', currentTaxStr = '';
 
   function updateDisplay() {
-    const sel = document.getElementById("locationSelect").value;
+    const sel = document.getElementById('locationSelect').value;
     const d = addressData[sel];
-    const kitchenBox = document.getElementById("centralKitchenBox");
-    const isKitchen = document.getElementById("isKitchen").checked;
+    const t = T[lang];
+    const kitchenBox = document.getElementById('centralKitchenBox');
+    const isKitchen = document.getElementById('isKitchen').checked;
 
-    kitchenBox.style.display = sel === "bianca_hq" ? "flex" : "none";
-    if (sel !== "bianca_hq") document.getElementById("isKitchen").checked = false;
+    // Show kitchen toggle only for bianca HQ
+    kitchenBox.style.display = d.hasKitchen ? 'flex' : 'none';
+    if (!d.hasKitchen) document.getElementById('isKitchen').checked = false;
 
-    currentName = d.name + (sel === "bianca_hq" && isKitchen ? " (ครัวกลาง)" : "");
-    currentAddr = d.addr;
-    currentTax = d.tax;
+    const localized = d[lang];
+    currentName = localized.name + (d.hasKitchen && isKitchen ? ' (ครัวกลาง)' : '');
+    currentAddr = localized.addr;
 
-    document.getElementById("dispName").textContent = currentName;
-    document.getElementById("dispAddress").textContent = currentAddr;
-    document.getElementById("dispTaxId").textContent = currentTax;
+    // Format tax ID for display: 0105568090385 → 0-10-556-80903-85-8 style not needed;
+    // just show as-is with the language-appropriate label
+    currentTaxStr = t.taxLabel + ' ' + d.taxId;
+
+    document.getElementById('dispName').textContent = currentName;
+    document.getElementById('dispAddress').textContent = currentAddr;
+    document.getElementById('dispTaxId').textContent = currentTaxStr;
   }
 
   function copyToClipboard() {
-    navigator.clipboard.writeText(`${currentName}\n${currentAddr}\n${currentTax}`).then(() => {
-      const btn = document.getElementById("copyBtn");
+    const text = `${currentName}\n${currentAddr}\n${currentTaxStr}`;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
       const span = btn.querySelector('span');
       const prev = span.textContent;
-      span.textContent = "Copied!";
-      btn.style.background = "var(--success-bg)";
-      btn.style.color = "var(--success)";
-      btn.style.borderColor = "#A8DFC0";
+      span.textContent = lang === 'en' ? 'Copied!' : 'คัดลอกแล้ว!';
+      btn.style.background = 'var(--success-bg)';
+      btn.style.color = 'var(--success)';
+      btn.style.borderColor = '#A8DFC0';
       setTimeout(() => {
         span.textContent = prev;
-        btn.style.background = "";
-        btn.style.color = "";
-        btn.style.borderColor = "";
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.style.borderColor = '';
       }, 2000);
     });
   }
 
   function openCashierMode() {
-    const w = window.open("", "_blank");
-    const formattedTax = currentTax.replace("ทะเบียนนิติบุคคลเลขที่ ", "ทะเบียนนิติบุคคลเลขที่<br>");
+    const w = window.open('', '_blank');
     w.document.write(`<!DOCTYPE html><html><head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <title>Cashier View</title>
@@ -725,7 +719,7 @@
       <a href="#" class="close" onclick="window.close();return false;">&times;</a>
       <div class="name">${currentName}</div>
       <div class="addr">${currentAddr}</div>
-      <div class="tax">${formattedTax}</div>
+      <div class="tax">${currentTaxStr}</div>
       </body></html>`);
     w.document.close();
   }
