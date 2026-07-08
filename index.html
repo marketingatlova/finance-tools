@@ -437,35 +437,36 @@
 
 <script>
   // ─── ADDRESS DATA (bilingual) ────────────────────────────────
+  // Sourced from official company address list provided by Marketing.
   // Each entry has `en` and `th` versions for name and addr.
   // tax is the same in both (numeric tax ID); taxLabel is language-specific.
   const addressData = {
     lova_hq: {
       en: {
         name: "Lova Hospitality Co., Ltd. (Head Office)",
-        addr: "571 RSU Tower, Unit 402, 4th Floor, Sukhumvit Road, Khlong Toei Nuea, Watthana, Bangkok 10110, Thailand"
+        addr: "571, RSU Tower, 4th Floor, Unit 402, Sukhumvit Road, Khlong Tan Nuea Subdistrict, Watthana District, Bangkok 10110"
       },
       th: {
-        name: "บริษัท โลวา ฮอสพิแทลลิที จำกัด สำนักงานใหญ่",
-        addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ยูนิต 402 ชั้น 4 ถนนสุขุมวิท แขวงคลองเตยเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
+        name: "บริษัท โลวา ฮอสพิแทลลิที จำกัด (สำนักงานใหญ่)",
+        addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ยูนิต 402 ชั้น 4 ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
       },
       taxId: "0105564111680"
     },
     hb_hq: {
       en: {
         name: "Holy Belly EMS Co., Ltd. (Head Office)",
-        addr: "571 RSU Tower, Unit 402, 4th Floor, Sukhumvit Road, Khlong Toei Nuea, Watthana, Bangkok 10110, Thailand"
+        addr: "571, RSU Tower, 4th Floor, Unit 402, Sukhumvit Road, Khlong Tan Nuea Subdistrict, Watthana District, Bangkok 10110"
       },
       th: {
-        name: "บริษัท โฮลี่ เบลลี่ อีเอ็มเอส จำกัด สำนักงานใหญ่",
-        addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ยูนิต 402 ชั้น 4 ถนนสุขุมวิท แขวงคลองเตยเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
+        name: "บริษัท โฮลี่ เบลลี่ อีเอ็มเอส จำกัด (สำนักงานใหญ่)",
+        addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ยูนิต 402 ชั้น 4 ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
       },
       taxId: "0105567146450"
     },
     hb_em: {
       en: {
         name: "Holy Belly EMS Co., Ltd. (Branch 00001)",
-        addr: "628, 630 EMSPHERE Shopping Complex, GM Floor, Units GM03 & GMV05, Sukhumvit Road, Khlong Toei, Klong Toei, Bangkok 10110, Thailand"
+        addr: "628, 630 EmSphere Shopping Center Building, GM Floor, Units GM03 & GMV05, Sukhumvit Road, Khlong Tan Subdistrict, Khlong Toei District, Bangkok 10110"
       },
       th: {
         name: "บริษัท โฮลี่ เบลลี่ อีเอ็มเอส จำกัด สาขา 00001",
@@ -476,11 +477,11 @@
     bianca_hq: {
       en: {
         name: "Bianca Holdings Co., Ltd. (Head Office)",
-        addr: "571 RSU Tower, 4th Floor, Unit 402, Sukhumvit Road, Khlong Toei Nuea, Watthana, Bangkok 10110, Thailand"
+        addr: "571, RSU Tower, 4th Floor, Unit 402, Sukhumvit Road, Khlong Tan Nuea Subdistrict, Watthana District, Bangkok 10110"
       },
       th: {
-        name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สำนักงานใหญ่",
-        addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ชั้นที่ 4 ยูนิต 402 ถนนสุขุมวิท แขวงคลองเตยเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
+        name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด (สำนักงานใหญ่)",
+        addr: "571 อาคารอาร์เอสยู ทาวเวอร์ ชั้นที่ 4 ยูนิต 402 ถนนสุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
       },
       taxId: "0105568090385",
       hasKitchen: true
@@ -488,7 +489,7 @@
     bianca_em: {
       en: {
         name: "Bianca Holdings Co., Ltd. (Branch 00001)",
-        addr: "628, 630 EMSPHERE Shopping Complex, Sukhumvit Road, Khlong Toei, Klong Toei, Bangkok 10110, Thailand"
+        addr: "628, 630 EmSphere Shopping Center Building, Sukhumvit Road, Khlong Tan Subdistrict, Khlong Toei District, Bangkok 10110"
       },
       th: {
         name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00001",
@@ -499,7 +500,7 @@
     bianca_ob: {
       en: {
         name: "Bianca Holdings Co., Ltd. (Branch 00002)",
-        addr: "1877 Parade Building, 3rd Floor, Units 1313–1314, Rama IV Road, Lumphini, Pathum Wan, Bangkok 10330, Thailand"
+        addr: "1877 Parade Building, 3rd Floor, Room 1313-1314, Rama IV Road, Lumphini Subdistrict, Pathumwan District, Bangkok 10330"
       },
       th: {
         name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00002",
@@ -510,7 +511,7 @@
     bianca_sp: {
       en: {
         name: "Bianca Holdings Co., Ltd. (Branch 00003)",
-        addr: "991/1 Ground Floor, Rama I Road, Pathum Wan, Pathum Wan, Bangkok 10330, Thailand"
+        addr: "991/1, Ground Floor, Rama I Road, Pathumwan Subdistrict, Pathumwan District, Bangkok 10330"
       },
       th: {
         name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00003",
@@ -521,7 +522,7 @@
     bianca_ic: {
       en: {
         name: "Bianca Holdings Co., Ltd. (Branch 00004)",
-        addr: "299 6th Floor, Unit 609, Charoen Nakhon Road, Khlong Ton Sai, Khlong San, Bangkok 10600, Thailand"
+        addr: "299, 6th Floor, Room 609, Charoen Nakhon Road, Khlong Ton Sai Subdistrict, Khlong San District, Bangkok 10600"
       },
       th: {
         name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด สาขา 00004",
@@ -532,11 +533,11 @@
     bianca_t21: {
       en: {
         name: "Bianca Holdings Co., Ltd. (Branch 00005)",
-        addr: "88, Units 5016A and 5016B, 5th Floor, Soi Sukhumvit 19 (Watthana), Sukhumvit Road, Khlong Toei Nuea, Watthana, Bangkok 10110, Thailand"
+        addr: "88, Room No. 5016A, 5016B, 5th Floor, Soi Sukhumvit 19 (Watthana), Sukhumvit Road, Khlong Toei Nuea Subdistrict, Watthana District, Bangkok 10110"
       },
       th: {
         name: "บริษัท บิอันก้า โฮลดิ้งส์ จำกัด(สาขา 00005)",
-        addr: "88 ห้องเลขที่ 5016A และ 5016B ชั้นที่ 5 ซอยสุขุมวิท 19 (วัฒนา) ถนนสุขุมวิท แขวงคลองเตยเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
+        addr: "88 ห้องเลขที่ 5016A,5016B ชั้นที่ 5 ซอยสุขุมวิท 19 (วัฒนา) ถนนสุขุมวิท แขวงคลองเตยเหนือ เขตวัฒนา กรุงเทพมหานคร 10110"
       },
       taxId: "0105568090385"
     }
@@ -717,8 +718,7 @@
     currentName = localized.name + (KITCHEN_FEATURE_ENABLED && d.hasKitchen && isKitchen ? ' (ครัวกลาง)' : '');
     currentAddr = localized.addr;
 
-    // Format tax ID for display: 0105568090385 → 0-10-556-80903-85-8 style not needed;
-    // just show as-is with the language-appropriate label
+    // Format tax ID for display: just show as-is with the language-appropriate label
     currentTaxStr = t.taxLabel + ' ' + d.taxId;
 
     document.getElementById('dispName').textContent = currentName;
